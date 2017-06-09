@@ -1,4 +1,4 @@
-package CompareTheTriplets;
+package warmUp.CompareTheTriplets;
 
 import java.io.*;
 import java.util.*;

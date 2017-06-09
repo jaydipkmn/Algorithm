@@ -1,4 +1,4 @@
-package MinMaxSum;
+package warmUp.MinMaxSum;
 
 import java.util.Scanner;
 

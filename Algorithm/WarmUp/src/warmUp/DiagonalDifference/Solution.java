@@ -1,4 +1,4 @@
-package DiagonalDifference;
+package warmUp.DiagonalDifference;
 
 import java.util.Scanner;
 
