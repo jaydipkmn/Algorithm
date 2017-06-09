@@ -1,4 +1,4 @@
-package warmUp.TimeConversion;
+package TimeConversion;
 
 import java.util.Arrays;
 import java.util.Scanner;

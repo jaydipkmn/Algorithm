@@ -1,4 +1,4 @@
-package warmUp.PlusMinus;
+package PlusMinus;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;

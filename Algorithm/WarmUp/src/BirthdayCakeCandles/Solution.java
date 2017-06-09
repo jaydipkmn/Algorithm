@@ -1,4 +1,4 @@
-package warmUp.BirthdayCakeCandles;
+package BirthdayCakeCandles;
 
 import java.util.Scanner;
 
