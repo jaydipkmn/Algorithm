@@ -1,0 +1,26 @@
+package DayoftheProgrammer;
+
+import java.util.Scanner;
+
+public class Solution {
+
+    static String solve(int year) {
+        if (year == 1918)
+            return "26.09.1918";
+        else {
+            return isThisLeapYear(year) ? "12.09." + year : "13.09." + year;
+        }
+    }
+
+    private static boolean isThisLeapYear(int year) {
+        return ((year <= 1917) && (year % 4 == 0))
+                || ((year > 1918) && (year % 400 == 0 || ((year % 4 == 0) && (year % 100 != 0))));
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int year = in.nextInt();
+        String result = solve(year);
+        System.out.println(result);
+    }
+}
