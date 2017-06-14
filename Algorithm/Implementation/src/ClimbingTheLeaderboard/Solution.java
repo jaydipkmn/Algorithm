@@ -1,42 +1,43 @@
 package ClimbingTheLeaderboard;
 
-import java.util.Comparator;
 import java.util.Scanner;
-import java.util.TreeSet;
 
 public class Solution {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
-        Comparator<Integer> c = new MyComparator();
-        TreeSet<Integer> t = new TreeSet<Integer>(c);
-        List<Integer> l = new ArrayList<Integer>();
+        int s[] = new int[n];
+        int rank[] = new int[n];
         for (int i = 0; i < n; i++) {
-            int data = in.nextInt();
-            if (!t.contains(data)) {
-                t.add(data);
-                l.add(data);
-            }
-        }
-        // System.out.println(l);
-        int m = in.nextInt();
-        for (int i = 0; i < m; i++) {
-            int data = in.nextInt();
-            int index = Collections.binarySearch(l, data, c);
-            if (index < 0) {
-                index = Math.abs(index);
+            s[i] = in.nextInt();
+            if (i == 0) {
+                rank[i] = 1;
             } else {
-                index++;
+                if (s[i] == s[i - 1]) {
+                    rank[i] = rank[i - 1];
+                } else {
+                    rank[i] = rank[i - 1] + 1;
+                }
             }
-            System.out.println(index);
+        }
+        int m = in.nextInt();
+        int a[] = new int[m];
+        int point = n - 1;
+        for (int j = 0; j < m; j++) {
+            a[j] = in.nextInt();
+            int current_rank = 0;
+            while (point >= 0 && a[j] > s[point]) {
+                point--;
+            }
+            if (point == -1) {
+                current_rank = 1;
+            } else if (a[j] == s[point]) {
+                current_rank = rank[point];
+            } else if (a[j] < s[point]) {
+                current_rank = rank[point] + 1;
+            }
+            System.out.println(current_rank);
         }
     }
 
-}
-
-class MyComparator implements Comparator<Integer> {
-    @Override
-    public int compare(Integer i1, Integer i2) {
-        return i2.compareTo(i1);
-    }
 }
